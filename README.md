@@ -3,8 +3,6 @@ This python package handles different tasks for visualization in the postprocess
 
 
 <img src="plots/comb.png"/>
-![[plots/comb.png]]
-
 
 - [Installation](#installation)
 - [Plotting differentially expressed genes](#plotting-differentially-expressed-genes)
@@ -34,7 +32,6 @@ pip install .
 Use this package  to plot differentially expressed genes from RNA sequencing experiments. 
 
 <img src="plots/DESeq_results/example_colors.png" width="350"/>
-![[plots/DESeq_results/example_colors.png|300]]
 
 ## Data preparation
 
@@ -83,7 +80,6 @@ compplot(comp.table, outfile='plots/DESeq_results/example1.png')
 ```
 
 <img src="plots/DESeq_results/example1.png" width="350"/>
-![[plots/DESeq_results/example1.png|300]]
 
 
 ## Customize plotted data
@@ -101,8 +97,8 @@ comp = compare(data.table_log2change,keep=keep, remove=None)
 
 compplot(comp.table)
 ```
+
 <img src="plots/DESeq_results/specify_experiments.png" width="200"/>
-![[plots/DESeq_results/specify_experiments.png|200]]
 
 #### Reorder experiments
 Manipulate the comparison table, e.g. to reorder the experiments. 
@@ -121,8 +117,8 @@ keys  =lambda col: col.map(lambda key: neworder.index(key))
 reordered_data = comp.table.sort_values(by='group_labels', key=keys )
 compplot(reordered_data)
 ```
+
 <img src="plots/DESeq_results/reordering.png" width="200"/>
-![[plots/DESeq_results/reordering.png|200]]
 
 #### Separate up/down regulated genes
 Plot up- and down-regulated genes as stacked bar.
@@ -134,8 +130,8 @@ comp = compare(data.table_log2change)
 table_updown = comp.make_table_updown()
 compplot(table_updown)
 ```
+
 <img src="plots/DESeq_results/updown.png" width="350"/>
-![[plots/DESeq_results/updown.png|300]]
 
 
 #### Mark a custom list of genes 
@@ -151,8 +147,8 @@ mark_genes = mark_genes.to_list()
 table_marked_genes = comp.make_table_markedGenes(mark_genes)
 compplot(table_marked_genes)
 ```
+
 <img src="plots/DESeq_results/mark_genes.png" width="350"/>
-![[plots/DESeq_results/mark_genes.png|300]]
 
 ## Customize Visualization
 
@@ -169,15 +165,14 @@ compplot(table_marked_genes,
                      'unmarked':'maroon'}, 
 		 dot_color='dimgrey')
 ```
+
 <img src="plots/DESeq_results/example_colors.png" width="350"/>
-![[plots/DESeq_results/example_colors.png|300]]
 
 # GO term enrichment 
 
 Use this package to visualize the results of GOterm enrichments. 
 
 <img src="'plots/GOenrichment/jittered.png"/>
-
 
 ## Preparing GOterms
 
@@ -300,12 +295,11 @@ plt.legend(loc='upper right')
 plt.savefig('plots/GOenrichment/jittered.png', bbox_inches='tight')
 plt.show()
 ```
+
 <img src="plots/GOenrichment/jittered.png" width="500"/>
-![[plots/GOenrichment/jittered.png | 600]]
 
 
 For comparison, here is the image without jittering:
-<img src="plots/GOenrichment/simpleplot.png" width="500"/>
-![[simpleplot.png|600]]
 
+<img src="plots/GOenrichment/simpleplot.png" width="500"/>
 

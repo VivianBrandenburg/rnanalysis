@@ -310,13 +310,12 @@ plt.legend(loc='upper right')
 plt.savefig('plots/GOenrichment/jittered.png', bbox_inches='tight')
 plt.show()
 ```
-<img src="'plots/GOenrichment/jittered.png"/>
+<img src="plots/GOenrichment/jittered.png"/>
 ![[plots/GOenrichment/jittered.png | 600]]
 
 
 For comparison, here is the image without jittering:
-
-<img src="'plots/GOenrichment/simpleplot.png" width="300"/>
+<img src="plots/GOenrichment/simpleplot.png" width="300"/>
 ![[simpleplot.png|600]]
 
 

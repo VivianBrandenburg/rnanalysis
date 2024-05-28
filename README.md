@@ -6,15 +6,15 @@ This python package handles different tasks for visualization in the postprocess
 ![[plots/comb.png]]
 
 
-- [[#Installation|Installation]]
-- [[#Plotting differentially expressed genes|Plotting differentially expressed genes]]
-	- [[#Plotting differentially expressed genes#Data preparation|Data preparation]]
-	- [[#Plotting differentially expressed genes#Visualize DEG from multiple experiments|Visualize DEG from multiple experiments]]
-	- [[#Plotting differentially expressed genes#Customize plotted data|Customize plotted data]]
-	- [[#Plotting differentially expressed genes#Customize Visualization|Customize Visualization]]
-- [[#GO term enrichment|GO term enrichment]]
-	- [[#GO term enrichment#Preparing GOterms|Preparing GOterms]]
-	- [[#GO term enrichment#Seaborn scatterplot without overlapping dots|Seaborn scatterplot without overlapping dots]]
+- [Installation](#installation)
+- [Plotting differentially expressed genes](#plotting-differentially-expressed-genes)
+	- [Data preparation](#data-preparation)
+	- [Visualize DEG from multiple experiments](#visualize-deg-from-multiple-experiments)
+	- [Customize plotted data](#customize-plotted-data)
+	- [Customize Visualization](#customize-visualization)
+- [GO term enrichment](#go-term-enrichment)
+	- [Preparing GOterms](#preparing-goterms)
+	- [Seaborn scatterplot without overlapping dots](#seaborn-scatterplot-without-overlapping-dots)
 
 # Installation
 
@@ -102,9 +102,9 @@ compplot(comp.table, outfile='plots/DESeq_results/example1.png')
 ## Customize plotted data
 
 
+
+#### Remove experiments
 You can provide a list of experiments to keep or experiments to remove to exclude experiments from the plots.
-
-
 ```python
 # change included experiments with a whitelist
 keep = datanames[:3]
@@ -116,10 +116,10 @@ comp = compare(data.table_log2change,remove=remove)
 
 compplot(comp.table)
 ```
-<img src="plots/DESeq_results/specify_experiments.png" width="350"/>
-![[plots/DESeq_results/specify_experiments.png|300]]
+<img src="plots/DESeq_results/specify_experiments.png" width="200"/>
+![[plots/DESeq_results/specify_experiments.png|200]]
 
-
+#### Reorder experiments
 Manipulate the comparison table, e.g. to reorder the experiments. 
 
 ```python
@@ -133,11 +133,11 @@ keys = lambda col: col.map(lambda key: neworder.index(key))
 reordered_data = comp.table.sort_values(by='group_labels', key=keys )
 compplot(reordered_data)
 ```
-<img src="plots/DESeq_results/reordering.png" width="350"/>
-![[plots/DESeq_results/reordering.png|300]]
+<img src="plots/DESeq_results/reordering.png" width="200"/>
+![[plots/DESeq_results/reordering.png|200]]
 
+#### Separate up/down regulated genes
 Plot up- and down-regulated genes as stacked bar.
-
 ```python
 # divide up-/down-regulated genes 
 comp = compare(data.table_log2change)
@@ -146,7 +146,7 @@ compplot(table_updown)
 ```
 <img src="plots/DESeq_results/updown.png" width="350"/>
 ![[plots/DESeq_results/updown.png|300]]
-
+#### Mark a custom list of genes 
  Specify a list of genes that you want to be marked in the plot: 
 ``` python
 # get a list of genes to mark
@@ -182,7 +182,7 @@ compplot(table_marked_genes,
 
 Use this package  to prepare tables for GOterm enrichment and to visualize the results. 
 
-<img src="'plots/GOenrichment/jittered.png" width="600"/>
+<img src="'plots/GOenrichment/jittered.png"/>
 
 
 ## Preparing GOterms
@@ -310,13 +310,13 @@ plt.legend(loc='upper right')
 plt.savefig('plots/GOenrichment/jittered.png', bbox_inches='tight')
 plt.show()
 ```
-<img src="'plots/GOenrichment/jittered.png" width="600"/>
+<img src="'plots/GOenrichment/jittered.png"/>
 ![[plots/GOenrichment/jittered.png | 600]]
 
 
 For comparison, here is the image without jittering:
 
-<img src="'plots/GOenrichment/simpleplot.png" width="600"/>
+<img src="'plots/GOenrichment/simpleplot.png" width="300"/>
 ![[simpleplot.png|600]]
 
 

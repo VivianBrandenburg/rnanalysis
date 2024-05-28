@@ -113,8 +113,8 @@ comp = compare(data.table_log2change,keep=keep)
 
 ## prepare a key function for reorderung the table 
 neworder = [('wt',), ('mut1',), ('mut3',),  
-			('mut1', 'wt'), ('mut3', 'wt'),  
-			('mut3', 'mut1'), ('mut3', 'mut1', 'wt')]
+            ('mut1', 'wt'), ('mut3', 'wt'),  
+            ('mut3', 'mut1'), ('mut3', 'mut1', 'wt')]
 keys  =lambda col: col.map(lambda key: neworder.index(key))
 
 ## reorder the data
@@ -164,9 +164,9 @@ There are several other options for customizing the plot. You can change the col
 compplot(table_marked_genes, 
 		 title='regulated genes in different colors', 
 		 bar_names={'marked':'some specific genes', 
-					'unmarked':'other regulated genes'}, 
+                    'unmarked':'other regulated genes'}, 
 		 bar_colors={'marked':'teal', 
-					 'unmarked':'maroon'}, 
+                     'unmarked':'maroon'}, 
 		 dot_color='dimgrey')
 ```
 <img src="plots/DESeq_results/example_colors.png" width="350"/>
@@ -233,17 +233,17 @@ import rnanalysis.gotools as go
 
 # get a list of input files and a list of data names 
 filenames = ['example_data/GOenrichments/mut1.c0_mut1.c1.csv', 
-			 'example_data/GOenrichments/mut2.c0_mut2.c1.csv',
-			 'example_data/GOenrichments/mut3.c0_mut3.c1.csv']
+             'example_data/GOenrichments/mut2.c0_mut2.c1.csv',
+             'example_data/GOenrichments/mut3.c0_mut3.c1.csv']
 filenames = [example_data + x for x in f]
 datanames = ['mut1', 'mut2', 'mut3']
 
 
 # process the data with p-values and genecounts for each enriched term
 # this will also produce a column with categories for p-values 
-enrichedTerms = go.enrichedGO.from_filenames(filenames, datanames, 
-											 significance_column='weightFisher', 
-											 significance_cutoff=0.01)
+enrichedTerms = go.enrichedGO.from_filenames(filenames, datanames,
+                                             significance_column='weightFisher',
+                                             significance_cutoff=0.01)
 ```
 
 

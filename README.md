@@ -172,7 +172,7 @@ compplot(table_marked_genes,
 
 Use this package to visualize the results of GOterm enrichments. 
 
-<img src="'plots/GOenrichment/jittered.png"/>
+<img src="plots/GOenrichment/jittered.png"  width="400"/>
 
 ## Preparing GOterms
 
